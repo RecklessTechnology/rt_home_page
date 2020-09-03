@@ -2,8 +2,7 @@ version: "2"
 
 services:
   hello_world:
-    image: ubuntu
-    command: [/bin/echo, 'Hello world']
+    image: nginx:latest
     restart: always
     container_name: home-page
     volumes:

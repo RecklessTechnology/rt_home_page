@@ -1,9 +1,10 @@
 version: "2"
 
 services:
-  home-page:
+  hello_world:
+    image: ubuntu
+    command: [/bin/echo, 'Hello world']
     restart: always
-    image: home-page
     container_name: home-page
     volumes:
       - "./volumes/nginx-home-page/conf.d/:/etc/nginx/conf.d"
@@ -12,5 +13,5 @@ services:
       - VIRTUAL_HOST=reckless.technology
       - VIRTUAL_NETWORK=nginx-proxy
       - VIRTUAL_PORT=8080
-      - LETSENCRYPT_HOST=reckless.technology/
+      - LETSENCRYPT_HOST=reckless.technology
       - LETSENCRYPT_EMAIL=travis@travisbennett.com

@@ -1,0 +1,16 @@
+version: "2"
+
+services:
+  home-page:
+    restart: always
+    image: home-page
+    container_name: home-page
+    volumes:
+      - "./volumes/nginx-home-page/conf.d/:/etc/nginx/conf.d"
+      - "./volumes/config/home-page/config.js:/usr/share/nginx/html/config.js"
+    environment:
+      - VIRTUAL_HOST=reckless.technology
+      - VIRTUAL_NETWORK=nginx-proxy
+      - VIRTUAL_PORT=8080
+      - LETSENCRYPT_HOST=reckless.technology/
+      - LETSENCRYPT_EMAIL=travis@travisbennett.com

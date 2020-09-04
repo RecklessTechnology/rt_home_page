@@ -11,7 +11,7 @@ services:
       - LETSENCRYPT_HOST=reckless.technology
       - LETSENCRYPT_EMAIL=travis@travisbennett.com
     volumes:
-      - public:/usr/share/nginx/html:ro
+      - ./public:/usr/share/nginx/html:ro
     networks:
       - proxy
     restart: unless-stopped

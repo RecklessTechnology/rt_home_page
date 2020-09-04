@@ -1,16 +1,22 @@
-version: "2"
+version: '3'
 
 services:
-  hello_world:
-    image: nginx:latest
-    restart: always
-    container_name: home-page
-    volumes:
-      - "./volumes/nginx-home-page/conf.d/:/etc/nginx/conf.d"
-      - "./volumes/config/home-page/config.js:/usr/share/nginx/html/config.js"
+  nginx:
+    image: nginx:alpine
+    expose:
+      - "8080"
     environment:
       - VIRTUAL_HOST=reckless.technology
-      - VIRTUAL_NETWORK=nginx-proxy
       - VIRTUAL_PORT=8080
       - LETSENCRYPT_HOST=reckless.technology
       - LETSENCRYPT_EMAIL=travis@travisbennett.com
+    volumes:
+      - /public:/usr/share/nginx/html:ro
+    networks:
+      - proxy
+    restart: unless-stopped
+
+networks:
+  proxy:
+    external:
+      name: nginx-proxy

@@ -13,3 +13,8 @@ services:
       - VIRTUAL_HOST=127.0.0.1
       - VIRTUAL_PORT=8080
     command: [nginx-debug, '-g', 'daemon off;']
+    networks:
+      - nginx-proxy_net
+networks:
+  nginx-proxy_net:
+    external: true

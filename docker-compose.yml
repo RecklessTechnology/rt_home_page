@@ -15,6 +15,3 @@ services:
     command: [nginx-debug, '-g', 'daemon off;']
     networks:
       - nginx-proxy_net
-networks:
-  nginx-proxy_net:
-    external: true

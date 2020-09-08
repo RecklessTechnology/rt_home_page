@@ -8,8 +8,8 @@ services:
     ports:
       - 8080:80
     environment:
-      - APP_PORT=8080
       - VIRTUAL_HOST=reckless.technology
+      - VIRTUAL_PORT=8080
       - LETSENCRYPT_HOST=reckless.technology
     build: .
     networks:

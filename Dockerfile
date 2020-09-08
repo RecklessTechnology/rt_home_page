@@ -11,6 +11,6 @@ RUN rm /usr/share/nginx/html/*
 COPY public /usr/share/nginx/html/
 
 # Export port to host
-EXPOSE ${APP_PORT}
+EXPOSE ${VIRTUAL_PORT}
 
 CMD ["nginx", "-g", "daemon off;"]

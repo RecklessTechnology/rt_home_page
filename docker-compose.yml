@@ -15,5 +15,6 @@ services:
     networks:
       - nginx-proxy-network
 networks:
-  nginx-proxy-network:
-    external: true
+  default:
+    external:
+      name: nginx-proxy-network

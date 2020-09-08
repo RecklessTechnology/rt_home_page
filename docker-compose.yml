@@ -9,6 +9,8 @@ services:
       - 8080:80
     environment:
       - APP_PORT=8080
+      - VIRTUAL_HOST=reckless.technology
+      - LETSENCRYPT_HOST=reckless.technology
     build: .
     networks:
       - nginx-proxy-network

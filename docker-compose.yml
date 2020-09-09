@@ -8,12 +8,15 @@ services:
     ports:
       - 8080:80
     environment:
-      VIRTUAL_PORT: ${VIRTUAL_PORT}
-    build:
-      context: ./
-      dockerfile: Dockerfile
-      args:
-        VIRTUAL_PORT: ${VIRTUAL_PORT}
+      VIRTUAL_HOST: reckless.technology
+      VIRTUAL_PORT: 8080
+      NGINX_HOST: reckless.technology
+      NGINX_PORT: 8080
+    # build:
+    #   context: ./
+    #   dockerfile: Dockerfile
+    #   args:
+    #     VIRTUAL_PORT: ${VIRTUAL_PORT}
     networks:
       - nginx-proxy-network
 networks:

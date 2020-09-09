@@ -1,5 +1,7 @@
-# Host with nginx
+ARG VIRTUAL_PORT
+ENV VIRTUAL_PORT=$VIRTUAL_PORT
 
+# Host with nginx
 FROM nginx:stable
 
 # Copy nginx config

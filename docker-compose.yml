@@ -9,7 +9,10 @@ services:
       - 8080:80
     environment:
       - VIRTUAL_PORT=${{ secrets.VIRTUAL_PORT }}
-    build: .
+    build:
+      context: .
+      args:
+        - VIRTUAL_PORT=${{ secrets.VIRTUAL_PORT }}
     networks:
       - nginx-proxy-network
 networks:

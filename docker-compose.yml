@@ -8,9 +8,9 @@ services:
     ports:
       - 8080:80
     build:
-      context: .
+      context: ./
       args:
-        - VIRTUAL_PORT=${{VIRTUAL_PORT}}
+        - VIRTUAL_PORT=${VIRTUAL_PORT}
     networks:
       - nginx-proxy-network
 networks:

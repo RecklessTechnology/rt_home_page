@@ -9,11 +9,7 @@ services:
       - 8080:80
     environment:
       VIRTUAL_PORT: ${VIRTUAL_PORT}
-    build:
-      context: .
-      dockerfile: Dockerfile
-      args:
-        VIRTUAL_PORT: ${VIRTUAL_PORT}
+    build: .
     networks:
       - nginx-proxy-network
 networks:

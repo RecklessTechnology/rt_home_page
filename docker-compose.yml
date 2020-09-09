@@ -8,9 +8,7 @@ services:
     ports:
       - 8080:80
     environment:
-      - VIRTUAL_HOST=reckless.technology
-      - VIRTUAL_PORT=8080
-      - LETSENCRYPT_HOST=reckless.technology
+      - VIRTUAL_PORT=${{ secrets.VIRTUAL_PORT }}
     build: .
     networks:
       - nginx-proxy-network

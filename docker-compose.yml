@@ -7,10 +7,13 @@ services:
     restart: unless-stopped
     ports:
       - 8080:80
+    environment:
+      VIRTUAL_PORT: ${VIRTUAL_PORT}
     build:
       context: ./
+      dockerfile: Dockerfile
       args:
-        - VIRTUAL_PORT=${VIRTUAL_PORT}
+        VIRTUAL_PORT: ${VIRTUAL_PORT}
     networks:
       - nginx-proxy-network
 networks:

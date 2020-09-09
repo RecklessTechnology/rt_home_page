@@ -10,7 +10,7 @@ services:
     environment:
       VIRTUAL_PORT: ${VIRTUAL_PORT}
     build:
-      context: ./
+      context: .
       dockerfile: Dockerfile
       args:
         VIRTUAL_PORT: ${VIRTUAL_PORT}

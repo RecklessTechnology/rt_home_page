@@ -1,8 +1,8 @@
-ARG VIRTUAL_PORT
-ENV VIRTUAL_PORT $VIRTUAL_PORT
-
 # Host with nginx
 FROM nginx:stable
+
+ARG VIRTUAL_PORT
+ENV VIRTUAL_PORT $VIRTUAL_PORT
 
 # Copy nginx config
 RUN rm /etc/nginx/conf.d/*

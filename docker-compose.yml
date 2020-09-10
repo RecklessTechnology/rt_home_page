@@ -9,6 +9,8 @@ services:
       - 8081:80
     environment:
       NGINX_PORT: 8081
+    external_links:
+      - nginx-router
     volumes:
       - ./public:/usr/share/nginx/html/
     networks:

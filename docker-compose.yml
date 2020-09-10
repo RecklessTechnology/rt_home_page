@@ -8,18 +8,17 @@ services:
     ports:
       - 8080:80
     environment:
-      LETSENCRYPT_HOST: reckless.technology
-      VIRTUAL_HOST: reckless.technology
+      LETSENCRYPT_HOST: reckless.technology/
+      VIRTUAL_HOST: reckless.technology/
       VIRTUAL_PORT: 8080
-      NGINX_HOST: reckless.technology
+      NGINX_HOST: reckless.technology/
       NGINX_PORT: 8080
-    # build:
-    #   context: ./
-    #   dockerfile: Dockerfile
-    #   args:
-    #     VIRTUAL_PORT: ${VIRTUAL_PORT}
+    volumes:
+      - ./public:/usr/share/nginx/html
     networks:
       - nginx-proxy-network
 networks:
   nginx-proxy-network:
     external: true
+volumes:
+  html:

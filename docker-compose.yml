@@ -13,8 +13,7 @@ services:
       VIRTUAL_PORT: 8080
       NGINX_HOST: reckless.technology/
       NGINX_PORT: 8080
-    volumes:
-      - ./public:/usr/share/nginx/html
+    build: .
     networks:
       - nginx-proxy-network
 networks:

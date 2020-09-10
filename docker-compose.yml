@@ -8,10 +8,6 @@ services:
     ports:
       - 8081:80
     environment:
-      LETSENCRYPT_HOST: reckless.technology
-      VIRTUAL_HOST: reckless.technology
-      VIRTUAL_PORT: 8081
-      NGINX_HOST: reckless.technology
       NGINX_PORT: 8081
     volumes:
       - ./public:/usr/share/nginx/html/

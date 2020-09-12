@@ -14,8 +14,7 @@ services:
     volumes:
       - ./public:/usr/share/nginx/html/
     networks:
-      - nginx-proxy-network
+      - rt_ssl_proxy_default
 networks:
-  nginx-proxy-network:
+  rt_ssl_proxy_default:
     external: true
-    

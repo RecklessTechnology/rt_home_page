@@ -19,8 +19,8 @@ services:
     labels:
       - "traefik.enable=true"
       - "traefik.backend=home-page"
-      - "traefik.frontend.rule=Host:reckless.technology"  
-  #      - "traefik.frontend.rule=Host:${DOMAINNAME}; PathPrefixStrip: /portainer"
+      # - "traefik.frontend.rule=Host:reckless.technology"  
+       - "traefik.frontend.rule=Host:reckless.technology; PathPrefixStrip: /"
       - "traefik.port=8081"
       - "traefik.docker.network=rt_ssl_proxy_default"
       - "traefik.frontend.headers.SSLRedirect=true"

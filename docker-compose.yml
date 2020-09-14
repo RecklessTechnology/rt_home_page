@@ -16,6 +16,24 @@ services:
       - ./public:/usr/share/nginx/html/
     networks:
       - rt_ssl_proxy_default
+    labels:
+      - "traefik.enable=true"
+      - "traefik.backend=home-page"
+      - "traefik.frontend.rule=Host:reckless.technology"  
+  #      - "traefik.frontend.rule=Host:${DOMAINNAME}; PathPrefixStrip: /portainer"
+      - "traefik.port=8081"
+      - "traefik.docker.network=rt_ssl_proxy_default"
+      - "traefik.frontend.headers.SSLRedirect=true"
+      - "traefik.frontend.headers.STSSeconds=315360000"
+      - "traefik.frontend.headers.browserXSSFilter=true"
+      - "traefik.frontend.headers.contentTypeNosniff=true"
+      - "traefik.frontend.headers.forceSTSHeader=true"
+      - "traefik.frontend.headers.SSLHost=reckless.technology"
+      - "traefik.frontend.headers.STSIncludeSubdomains=true"
+      - "traefik.frontend.headers.STSPreload=true"
+  #      - "traefik.frontend.headers.frameDeny: true" #customFrameOptionsValue overrides this
+      - "traefik.frontend.headers.customFrameOptionsValue: allow-from https:reckless.technology"
+    
 networks:
   rt_ssl_proxy_default:
     external: true

@@ -16,7 +16,7 @@ services:
       - "traefik.backend=home-page"
       # - "traefik.frontend.rule=Host:reckless.technology"  
       - "traefik.frontend.rule=Host:reckless.technology; PathPrefixStrip: /"
-      - "traefik.port=8081"
+      - "traefik.port=80"
       - "traefik.docker.network=rt_ssl_proxy_default"
       - "traefik.frontend.headers.SSLRedirect=true"
       - "traefik.frontend.headers.STSSeconds=315360000"

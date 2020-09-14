@@ -2,16 +2,11 @@ version: '3.8'
 
 services:
   home-page:
-    image: jwilder/whoami
+    image: nginx:latest
     container_name: home-page
     restart: unless-stopped
     ports:
       - 8081:80
-    environment:
-      VIRTUAL_PORT: 8081
-      NGINX_PORT: 8081
-    external_links:
-      - nginx-router
     volumes:
       - ./public:/usr/share/nginx/html/
     networks:
@@ -20,7 +15,7 @@ services:
       - "traefik.enable=true"
       - "traefik.backend=home-page"
       # - "traefik.frontend.rule=Host:reckless.technology"  
-       - "traefik.frontend.rule=Host:reckless.technology; PathPrefixStrip: /"
+      - "traefik.frontend.rule=Host:reckless.technology; PathPrefixStrip: /"
       - "traefik.port=8081"
       - "traefik.docker.network=rt_ssl_proxy_default"
       - "traefik.frontend.headers.SSLRedirect=true"

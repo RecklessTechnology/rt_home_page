@@ -10,7 +10,7 @@ services:
     volumes:
       - ./public:/usr/share/nginx/html/
     networks:
-      - rt_ssl_proxy_default
+      - traefik-proxy
     labels:
       - "traefik.enable=true"
       # - "traefik.backend=home-page"
@@ -30,5 +30,5 @@ services:
       - "traefik.frontend.headers.customFrameOptionsValue: allow-from https:reckless.technology"
     
 networks:
-  rt_ssl_proxy_default:
+  traefik-proxy:
     external: true

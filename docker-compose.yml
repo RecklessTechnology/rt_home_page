@@ -1,4 +1,4 @@
-version: '3.8'
+version: '3.3'
 
 services:
   home-page:
@@ -13,10 +13,10 @@ services:
       - rt_ssl_proxy_default
     labels:
       - "traefik.enable=true"
-      - "traefik.backend=home-page"
+      # - "traefik.backend=home-page"
       # - "traefik.frontend.rule=Host:reckless.technology"  
       - "traefik.frontend.rule=Host:reckless.technology; PathPrefixStrip: /"
-      - "traefik.port=80"
+      - "traefik.port=8081"
       - "traefik.docker.network=rt_ssl_proxy_default"
       - "traefik.frontend.headers.SSLRedirect=true"
       - "traefik.frontend.headers.STSSeconds=315360000"

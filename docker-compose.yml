@@ -15,11 +15,12 @@ services:
       - "traefik.enable=true"
 
       - "traefik.docker.network=traefik-proxy"
-      - "traefik.port=8081"
+      # - "traefik.port=8081"
       
-      - "traefik.backend=home-page"
-      - "traefik.https.routers.home-page.rule=Host(`reckless.technology`) && Path(`/`)"
-      - "traefik.https.routers.home-page.tls.certresolver=letsEncrypt"
+      - "traefik.http.routers.home-page.rule=Host(`reckless.technology`) && Path(`/`)"
+      - "traefik.http.routers.home-page.tls.certresolver=letsEncrypt"
+      - "traefik.http.routers.home-page.service=home-page"
+      
 networks:
   traefik-proxy:
     external: true

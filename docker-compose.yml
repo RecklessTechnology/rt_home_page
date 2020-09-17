@@ -2,24 +2,29 @@ version: '3.3'
 
 services:
   home-page:
-    image: nginx:latest
+    image: nginx:lahome
+
     container_name: home-page
-    restart: unless-stopped
-    ports:
-      - 8081:80
+
     volumes:
       - ./public:/usr/share/nginx/html/
+
     networks:
       - traefik-proxy
+    ports:
+      - 8081:80
+
     labels:
-      - "traefik.enable=true"
-      - "traefik.port=8081"
+      - traefik.enable=true
+      - traefik.port=8081
+      - traefik.http.services.home-page.loadbalancer.server.port=8081
 
-      - "traefik.docker.network=traefik-proxy"
+      - traefik.docker.network=traefik-proxy
 
-      - "traefik.http.routers.home-page.rule=Host(`reckless.technology`) && PathPrefix(`/`)"
-      - "traefik.http.routers.home-page.tls.certresolver=letsEncrypt"
+      - traefik.http.routers.home-page.rule=Host(`reckless.technology`) && Path(`/`)
+      - traefik.http.routers.home-page.tls.certresolver=letsEncrypt
 
+    restart: unless-stopped
 networks:
   traefik-proxy:
     external: true

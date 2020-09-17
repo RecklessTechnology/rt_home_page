@@ -15,14 +15,14 @@ services:
       - 8081:80
 
     labels:
-      - traefik.enable=true
-      - traefik.port=8081
-      - traefik.http.services.home-page.loadbalancer.server.port=8081
+      - "traefik.enable=true"
+      - "traefik.port=8081"
+      - "traefik.http.services.home-page.loadbalancer.server.port=8081"
 
-      - traefik.docker.network=traefik-proxy
+      - "traefik.docker.network=traefik-proxy"
 
-      - traefik.http.routers.home-page.rule=Host(`reckless.technology`) && Path(`/`)
-      - traefik.http.routers.home-page.tls.certresolver=letsEncrypt
+      - "traefik.http.routers.home-page.rule=Host(`reckless.technology`) && Path(`/`)"
+      - "traefik.http.routers.home-page.tls.certresolver=letsEncrypt"
 
     restart: unless-stopped
 networks:

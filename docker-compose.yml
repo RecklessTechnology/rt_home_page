@@ -18,6 +18,8 @@ services:
       - "traefik.enable=true"
       - "traefik.http.services.home-page.loadbalancer.server.port=8081"
       - "traefik.http.routers.home-page.rule=Host(`reckless.technology`) && Path(`/`)"
+      - "traefik.backend=home-page"
+      - "traefik.frontend.rule=PathPrefix: /"
       - "traefik.http.routers.home-page.tls.certresolver=letsEncrypt"
 
     restart: unless-stopped

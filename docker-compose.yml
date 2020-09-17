@@ -18,7 +18,7 @@ services:
       - "traefik.enable=true"
       - "traefik.http.routers.home-page.rule=Host(`reckless.technology`) && PathPrefix(`/`)"
       - "traefik.http.routers.home-page.tls.certresolver=letsEncrypt"
-
+      - "traefik.backend=home-page"
     restart: unless-stopped
 networks:
   traefik-proxy:

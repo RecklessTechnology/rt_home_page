@@ -12,11 +12,13 @@ services:
     networks:
       - traefik-proxy
     labels:
-      - "traefik.http.routers.router0.rule=Host(`reckless.technology`) && PathPrefix(`/`)"
-      - traefik.http.routers.whoami.tls=true
-      - traefik.http.routers.whoami.tls.certresolver=letsEncrypt
-      - traefik.http.routers.whoami.service=home-page
-      - traefik.http.services.whoami.loadbalancer.server.port=8081
+      - "traefik.enable=true"
+
+      - "traefik.docker.network=traefik-proxy"
+      - "traefik.port=8081"
+      
+      - "traefik.backend=home-page"
+      - "traefik.http.routers.home-page.rule=Host(`reckless.technology`) && PathPrefix(`/`)"
 networks:
   traefik-proxy:
     external: true

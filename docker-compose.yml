@@ -23,7 +23,7 @@ services:
 
       # - "traefik.backend=home-page"
 
-      - "traefik.http.routers.home-page.rule=Host(`reckless.technology`) && Path(`/`)"
+      - "traefik.http.routers.home-page.rule=HostHeader(`reckless.technology`) && Path(`/`)"
       - "traefik.http.routers.home-page.tls.certresolver=letsEncrypt"
 
     restart: unless-stopped

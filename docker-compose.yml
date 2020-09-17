@@ -12,23 +12,11 @@ services:
     networks:
       - traefik-proxy
     labels:
-      - "traefik.enable=true"
-      # - "traefik.backend=home-page"
-      # - "traefik.frontend.rule=Host:reckless.technology"  
-      - "traefik.frontend.rule=Host:reckless.technology; PathPrefixStrip: /"
-      - "traefik.port=8081"
-      - "traefik.docker.network=rt_ssl_proxy_default"
-      - "traefik.frontend.headers.SSLRedirect=true"
-      - "traefik.frontend.headers.STSSeconds=315360000"
-      - "traefik.frontend.headers.browserXSSFilter=true"
-      - "traefik.frontend.headers.contentTypeNosniff=true"
-      - "traefik.frontend.headers.forceSTSHeader=true"
-      - "traefik.frontend.headers.SSLHost=example.com"
-      - "traefik.frontend.headers.STSIncludeSubdomains=true"
-      - "traefik.frontend.headers.STSPreload=true"
-  #      - "traefik.frontend.headers.frameDeny: true" #customFrameOptionsValue overrides this
-      - "traefik.frontend.headers.customFrameOptionsValue: allow-from https:reckless.technology"
-    
+      - "traefik.http.routers.router0.rule=Host(`reckless.technology`) && PathPrefix(`/`)"
+      - traefik.http.routers.whoami.tls=true
+      - traefik.http.routers.whoami.tls.certresolver=letsEncrypt
+      - traefik.http.routers.whoami.service=home-page
+      - traefik.http.services.whoami.loadbalancer.server.port=8081
 networks:
   traefik-proxy:
     external: true

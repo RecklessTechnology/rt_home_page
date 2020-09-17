@@ -2,7 +2,7 @@ version: '3.3'
 
 services:
   home-page:
-    image: nginx:lahome
+    image: nginx:latest
 
     container_name: home-page
 

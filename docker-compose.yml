@@ -9,8 +9,6 @@ services:
       - 8081:80
     volumes:
       - ./public:/usr/share/nginx/html/
-    networks:
-      - traefik-proxy
     labels:
       - "traefik.enable=true"
       - "traefik.port=8081"

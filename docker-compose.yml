@@ -16,12 +16,13 @@ services:
 
     labels:
       - "traefik.enable=true"
-      - "traefik.port=8081"
-      - "traefik.http.services.home-page.loadbalancer.server.port=8081"
+      # - "traefik.port=8081"
+      # - "traefik.http.services.home-page.loadbalancer.server.port=8081"
 
-      - "traefik.docker.network=traefik-proxy"
-      - "traefik.backend=home-page"
-      
+      # - "traefik.docker.network=traefik-proxy"
+
+      # - "traefik.backend=home-page"
+
       - "traefik.http.routers.home-page.rule=Host(`reckless.technology`) && Path(`/`)"
       - "traefik.http.routers.home-page.tls.certresolver=letsEncrypt"
 

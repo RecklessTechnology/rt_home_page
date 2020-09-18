@@ -23,26 +23,24 @@ COPY --from=0 /home/node/app/ /home/node/app/
 # Switch to work directory
 WORKDIR /home/node/app/
 
-RUN npm install react-scripts -g
-
 # Build project
 RUN npm run build
 
 
 
-# --- Stage 3 --- Host with nginx
+# # --- Stage 3 --- Host with nginx
 
-FROM nginx:stable
+# FROM nginx:stable
 
-# Copy nginx congif
-RUN rm /etc/nginx/conf.d/*
-COPY nginx.conf /etc/nginx/conf.d/
+# # Copy nginx congif
+# RUN rm /etc/nginx/conf.d/*
+# COPY nginx.conf /etc/nginx/conf.d/
 
-# Copy build files to nginx
-RUN rm /usr/share/nginx/html/*
-COPY --from=1 /home/node/app/build /usr/share/nginx/html/
+# # Copy build files to nginx
+# RUN rm /usr/share/nginx/html/*
+# COPY --from=1 /home/node/app/build /usr/share/nginx/html/
 
-# Export port to host
-EXPOSE ${APP_PORT}
+# # Export port to host
+# EXPOSE ${APP_PORT}
 
 CMD ["nginx", "-g", "daemon off;"]

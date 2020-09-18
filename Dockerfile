@@ -23,6 +23,8 @@ COPY --from=0 /home/node/app/ /home/node/app/
 # Switch to work directory
 WORKDIR /home/node/app/
 
+RUN npm install react-scripts -g
+
 # Build project
 RUN npm run build
 

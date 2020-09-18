@@ -3,7 +3,7 @@
 FROM node:10
 
 # Copies everything over to Docker environment
-COPY . /home/node/app/
+# COPY . /home/node/app/
 
 # Switch to work directory
 WORKDIR /home/node/app/

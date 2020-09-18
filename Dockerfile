@@ -8,6 +8,8 @@ FROM node:10
 # Switch to work directory
 WORKDIR /home/node/app/
 
+RUN npm install react-scripts -g
+
 # Install all node packages
 RUN npm install
 
@@ -15,15 +17,15 @@ RUN npm install
 
 # --- Stage 2 --- Build
 
-FROM node:10
+# FROM node:10
 
 # Copy dependencies from previous step
-COPY --from=0 /home/node/app/ /home/node/app/
+# COPY --from=0 /home/node/app/ /home/node/app/
 
 # Switch to work directory
-WORKDIR /home/node/app/
+# WORKDIR /home/node/app/
 
-RUN npm install react-scripts -g
+
 
 # Build project
 RUN npm run build

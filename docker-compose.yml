@@ -7,7 +7,7 @@ services:
     container_name: home-page
 
     volumes:
-      - ./public:/usr/share/nginx/html/
+      - /var/run/docker.sock:/var/run/docker.sock:ro
     build: .
     networks:
       - traefik-proxy

@@ -1,8 +1,27 @@
 # Host with nginx
-FROM nginx:latest
+FROM node:latest
 
-# Copy build files to nginx
+# Install all node packages
+RUN yarn
+
+# Build project
+RUN yarn build
+
+CMD ["yarn", "start"]
+
+# --- Stage 3 --- Host with nginx
+
+# FROM nginx:stable
+
+# # Copy nginx congif
+# RUN rm /etc/nginx/conf.d/*
+# COPY nginx.conf /etc/nginx/conf.d/
+
+# # Copy build files to nginx
 # RUN rm /usr/share/nginx/html/*
-# COPY ./public /usr/share/nginx/html/
+# COPY --from=1 ${DOCKER_DEST}/build /usr/share/nginx/html/
 
-CMD ["nginx", "-g", "daemon off;"]
+# # Export port to host
+# EXPOSE ${APP_PORT}
+
+# CMD ["nginx", "-g", "daemon off;"]

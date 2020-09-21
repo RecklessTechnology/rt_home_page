@@ -1,26 +1,21 @@
+import 'aframe';
+import 'aframe-particle-system-component';
+
+import {Entity, Scene} from 'aframe-react';
+
 import React from 'react';
-import logo from './logo.svg';
+import ReactDOM from 'react-dom';
+
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>What up, motha fucka!</p>
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Scene>
+      <Entity geometry={{primitive: 'box'}} material={{color: 'red'}} position={{x: 0, y: 0, z: -5}}/>
+      <Entity particle-system={{preset: 'snow'}}/>
+      <Entity light={{type: 'point'}}/>
+      <Entity text={{value: 'Hello, WebVR!'}}/>
+    </Scene>
   );
 }
 

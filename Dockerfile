@@ -1,6 +1,6 @@
 # --- Stage 1 --- Install dependencies
 
-FROM node:10
+FROM node:stable
 
 # Copies everything over to Docker environment
 COPY . /home/node/app/
@@ -13,7 +13,7 @@ RUN npm install
 
 # --- Stage 2 --- Build
 
-FROM node:10
+FROM node:stable
 
 # Copy dependencies from previous step
 COPY --from=0 /home/node/app/ /home/node/app/

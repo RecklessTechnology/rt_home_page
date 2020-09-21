@@ -20,7 +20,7 @@ COPY --from=0 /home/node/app/ /home/node/app/
 
 # Copy nginx congif
 RUN rm /etc/nginx/conf.d/*
-COPY nginx.conf /etc/nginx/conf.d/
+COPY nginx.conf /etc/nginx/conf.d/default.conf
 
 # Switch to work directory
 WORKDIR /home/node/app/

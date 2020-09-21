@@ -1,6 +1,6 @@
 # --- Stage 1 --- Install dependencies
 
-FROM node:stable
+FROM node:10
 
 # Copies everything over to Docker environment
 COPY . /home/node/app/
@@ -13,13 +13,12 @@ RUN npm install
 
 # --- Stage 2 --- Build
 
-FROM node:stable
+FROM node:10
 
 # Copy dependencies from previous step
 COPY --from=0 /home/node/app/ /home/node/app/
 
 # Copy nginx congif
-RUN rm /etc/nginx/conf.d/*
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 
 # Switch to work directory

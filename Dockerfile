@@ -28,5 +28,9 @@ WORKDIR /home/node/app/
 # Build project
 RUN npm run build
 
+# Copy build
+RUN rm /home/node/app/*
+COPY .build/* /home/node/app/
+
 # Start nginx
 CMD ["nginx", "-g", "daemon off;"]

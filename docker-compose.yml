@@ -8,7 +8,9 @@ services:
 
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
-      - app_dir:/home/node/app/:rw
+      - app_dir:/home/node/app:rw
+      - extensions_dir:/home/code/extensions:rw
+      - data_dir:/home/coder/data"
     build: .
     networks:
       - traefik-proxy
@@ -24,6 +26,8 @@ services:
     restart: unless-stopped
 volumes:
   app_dir:
+  extensions_dir:
+  data_dir:
 networks:
   traefik-proxy:
     external: true

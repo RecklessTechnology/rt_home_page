@@ -8,7 +8,7 @@ services:
 
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
-      #- ./:/usr/src/app:rw
+      - app_dir:/usr/src/app:rw
     build: .
     networks:
       - traefik-proxy
@@ -24,8 +24,6 @@ services:
     restart: unless-stopped
 volumes:
   app_dir:
-  extensions_dir:
-  data_dir:
 networks:
   traefik-proxy:
     external: true

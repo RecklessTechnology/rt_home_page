@@ -10,7 +10,13 @@ import './App.css';
 
 function App() {
   return (
-    <div>Hello, world!</div>
+    <Scene>
+        <Entity geometry={{primitive: 'box'}} material={{color: 'red'}} position={{x: 0, y: 0, z: -5}}/>
+        <Entity particle-system={{preset: 'snow'}}/>
+        <Entity light={{type: 'point'}}/>
+        <Entity gltf-model={{src: 'virtualcity.gltf'}}/>
+        <Entity text={{value: 'Hello, WebVR!'}}/>
+      </Scene>
   );
 }
 

@@ -2,15 +2,11 @@
 
 FROM node:alpine
 
+# Copies everything over to Docker environment
 COPY . /usr/src/app/
 
 # Switch to work directory
 WORKDIR /usr/src/app
-
-# Copies everything over to Docker environment
-# COPY . /usr/src/app/
-
-
 
 # Install all node packages
 RUN yarn install

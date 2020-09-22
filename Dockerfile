@@ -21,18 +21,20 @@ RUN yarn install
 # # Copy dependencies from previous step
 #COPY --from=0 /usr/src/app /usr/src/app
 
+CMD ["npm" "run" "start"]
+
 # # Build project
-RUN yarn run build
+# RUN yarn run build
 
-# --- Stage 3 --- Deploy
+# # --- Stage 3 --- Deploy
 
-FROM nginx:stable
+# FROM nginx:stable
 
-# # Switch to work directory
-WORKDIR /usr/share/nginx/html
+# # # Switch to work directory
+# WORKDIR /usr/share/nginx/html
 
-# # Copy buld from previous step
-COPY --from=0 /usr/src/app/build /usr/share/nginx/html
+# # # Copy buld from previous step
+# COPY --from=0 /usr/src/app/build /usr/share/nginx/html
 
-# Start nginx
-CMD ["nginx", "-g", "daemon off;"]
+# # Start nginx
+# CMD ["nginx", "-g", "daemon off;"]

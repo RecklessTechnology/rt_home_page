@@ -13,7 +13,7 @@ services:
     networks:
       - traefik-proxy
     ports:
-      - 8081:80
+      - 8081:3000
 
     environment:
       - "APP_PORT=8081"

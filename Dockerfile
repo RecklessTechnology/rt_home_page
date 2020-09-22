@@ -13,13 +13,13 @@ RUN yarn install
 
 # --- Stage 2 --- Build
 
-FROM node:alpine
+#FROM node:alpine
 
 # # Switch to work directory
-WORKDIR /usr/src/app
+#WORKDIR /usr/src/app
 
 # # Copy dependencies from previous step
-COPY --from=0 /usr/src/app /usr/src/app
+#COPY --from=0 /usr/src/app /usr/src/app
 
 # # Build project
 RUN yarn run build
@@ -32,7 +32,7 @@ FROM nginx:stable
 WORKDIR /usr/share/nginx/html
 
 # # Copy buld from previous step
-COPY --from=1 /usr/src/app/build /usr/share/nginx/html
+COPY --from=0 /usr/src/app/build /usr/share/nginx/html
 
 # Start nginx
 CMD ["nginx", "-g", "daemon off;"]

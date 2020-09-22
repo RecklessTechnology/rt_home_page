@@ -8,8 +8,8 @@ services:
 
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
-      - ./:/home/node/app:rw
-      - data_dir:/etc/nginx/:rw
+      # - ./:/home/node/app:rw
+      # - data_dir:/etc/nginx/:rw
     build: .
     networks:
       - traefik-proxy

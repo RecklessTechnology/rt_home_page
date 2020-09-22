@@ -6,12 +6,12 @@ FROM node:alpine
 WORKDIR /usr/src/app
 
 # Copies everything over to Docker environment
-# COPY . /usr/src/app/
+COPY . /usr/src/app/
 
 # Install all node packages
 RUN yarn install
 
-# # --- Stage 2 --- Build
+# --- Stage 2 --- Build
 
 FROM node:alpine
 
@@ -24,7 +24,7 @@ COPY --from=0 /usr/src/app /usr/src/app
 # # Build project
 RUN yarn run build
 
-# # --- Stage 3 --- Deploy
+# --- Stage 3 --- Deploy
 
 FROM nginx:stable
 

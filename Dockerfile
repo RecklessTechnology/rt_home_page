@@ -6,7 +6,7 @@ FROM node:alpine
 WORKDIR /usr/src/app
 
 # Copies everything over to Docker environment
-COPY . /usr/src/app/
+# COPY . /usr/src/app/
 
 # Install all node packages
 RUN yarn install
@@ -19,7 +19,7 @@ FROM node:alpine
 WORKDIR /usr/src/app
 
 # # Copy dependencies from previous step
-COPY --from=0 /usr/src/app/node_modules /usr/src/app/node_modules
+COPY --from=0 /usr/src/app /usr/src/app
 
 # # Build project
 RUN yarn run build

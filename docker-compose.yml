@@ -21,7 +21,7 @@ services:
       - "traefik.enable=true"
       - "traefik.http.routers.home-page.rule=Host(`reckless.technology`) && PathPrefix(`/`)"
       - "traefik.http.routers.home-page.tls.certresolver=letsEncrypt"
-      # - "traefik.http.routers.another-service.middlewares: error-pages-middleware@docker"
+      - "traefik.http.routers.home-page.middlewares=error-pages-middleware@docker"
     restart: unless-stopped
 volumes:
   app_dir:

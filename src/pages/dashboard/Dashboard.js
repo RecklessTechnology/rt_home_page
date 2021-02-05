@@ -1,9 +1,7 @@
 import React from "react";
 import {
   Grid,
-  // GridList,
-  // GridListTile,
-  // GridListTileBar,
+  AppBar,
 } from "@material-ui/core";
 import { makeStyles } from '@material-ui/core/styles';
 // import { Link } from "react-router-dom";
@@ -21,10 +19,6 @@ import projects from '../../config/projects'
 export default function Dashboard(props) {
   const useStyles = makeStyles((theme) => ({
     root: {
-      display: 'flex',
-      flexWrap: 'wrap',
-      justifyContent: 'space-around',
-      overflow: 'hidden',
       backgroundColor: theme.palette.background.paper,
       minHeight: '100%',
     },
@@ -35,7 +29,6 @@ export default function Dashboard(props) {
     item: {
       overflow: 'hidden',
       height: 300,
-      justifyContent: 'center',
     },
     gridImg: {
       height: '100%',
@@ -52,6 +45,10 @@ export default function Dashboard(props) {
       padding: '0 15px',
       textDecoration: 'none',
       color: '#FFF',
+    },
+    appBar: {
+      background: 'none',
+      boxShadow: 'none',
     }
   }));
   var classes = useStyles();
@@ -59,10 +56,18 @@ export default function Dashboard(props) {
   return (
     <div className={classes.root}>
       
-      <PageTitle/>
-      <Grid container spacing={3} className={classes.grid}>
+      <AppBar
+        position={'relative'}
+        className={classes.appBar}
+      >
+        <PageTitle/>
+      </AppBar>
+      <Grid container
+      direction="row"
+      justify="flex-start"
+      alignItems="flex-start"
+      spacing={3} className={classes.grid}>
         {projects.map((project) => (
-          
           <Grid item
           xl={4}
           lg={4} // ipad (large)

@@ -9,7 +9,7 @@ export default function PageTitle(props) {
   const useStyles = makeStyles((theme) => ({
     pageTitleContainer: {
       width: '100%',
-      padding: '0 15px',
+      color: '#000'
     }
   }));
   var classes = useStyles();

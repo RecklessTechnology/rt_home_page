@@ -5,8 +5,8 @@ module.exports = [
     link: 'https://kinetecharts.github.io/openPerform/',
   },
   {
-    title: 'OpenBCI-WebXR-EEGHypercube XR',
-    img: 'OpenBCI-WebXR-EEG.gif',
+    title: 'OpenBCI WebXR EEG',
+    img: 'images/OpenBCI-WebXR-EEG.gif',
     link: 'https://reckless.technology/archive/OpenBCI-WebXR-EEG/',
   },
   {

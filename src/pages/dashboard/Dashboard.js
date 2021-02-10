@@ -4,14 +4,9 @@ import {
   AppBar,
 } from "@material-ui/core";
 import { makeStyles } from '@material-ui/core/styles';
-// import { Link } from "react-router-dom";
 
-// styles
-// import useStyles from "./styles";
+import GitHubIcon from '@material-ui/icons/GitHub';
 
-
-// components
-// import Widget from "../../components/Widget";
 import PageTitle from "../../components/PageTitle";
 
 import projects from '../../config/projects'
@@ -19,7 +14,7 @@ import projects from '../../config/projects'
 export default function Dashboard(props) {
   const useStyles = makeStyles((theme) => ({
     root: {
-      backgroundColor: theme.palette.background.paper,
+      backgroundColor: '#fff',
       minHeight: '100%',
     },
     grid: {
@@ -38,55 +33,59 @@ export default function Dashboard(props) {
       backgroundPosition: 'center center',
       position: 'relative',
     },
-    gridTitle: {
+    gridBar: {
       width: '100%',
       bottom: 0,
       position: 'absolute',
-      padding: '0 15px',
+      padding: '0',
+    },
+    gridTitle: {
       textDecoration: 'none',
       color: '#FFF',
+      padding: '5px 15px',
     },
     appBar: {
-      background: 'none',
+      backgroundColor: '#fff',
       boxShadow: 'none',
-    }
+    },
+    bottomBar: {
+      top: 'auto',
+      bottom: 0,
+      backgroundColor: '#fff',
+      boxShadow: 'none',
+      padding: '15px 30px',
+    },
+    githublink: {
+      color: '#000',
+      textDecoration: 'none',
+      underline: 'none',
+      width: '100%',
+      textAlign: 'right',
+    },
   }));
   var classes = useStyles();
   
   return (
     <div className={classes.root}>
-      
-      <AppBar
-        position={'relative'}
-        className={classes.appBar}
-      >
+      <AppBar position={'relative'} className={classes.appBar} >
         <PageTitle/>
       </AppBar>
-      <Grid container
-      direction="row"
-      justify="flex-start"
-      alignItems="flex-start"
-      spacing={3} className={classes.grid}>
+      <Grid container direction="row" justify="flex-start" alignItems="flex-start" spacing={3} className={classes.grid}>
         {projects.map((project) => (
-          <Grid item
-          xl={4}
-          lg={4} // ipad (large)
-          md={4} // ipad (small)
-          sm={4} // 800x600
-          xs={12} // iphone
-          key={project.img}
-          className={classes.item}>
+          <Grid item xl={4} lg={4} md={4} sm={4} xs={12} key={project.img} className={classes.item} >
             <a href={project.link} target="_blank" rel="noopener noreferrer">
               <div className={classes.gridImg} style={{
                 backgroundImage: 'url(' + project.img + ')'
               }}>
-                <div className={classes.gridTitle}><h5>{project.title}</h5></div>
+                <div className={classes.gridBar}><h5 className={classes.gridTitle}>{project.title}</h5></div>
               </div>
             </a>
           </Grid>
-          
         ))}
       </Grid>
+      <AppBar position={'fixed'} className={classes.bottomBar} >
+        <a className={classes.githublink} href="https://github.com/RecklessTechnology/rt_home_page" target="_blank" rel="noopener noreferrer">View page source. <GitHubIcon /></a>
+      </AppBar>
     </div>
   );
 }

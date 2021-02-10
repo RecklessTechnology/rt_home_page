@@ -1,4 +1,8 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Homepage for Reckless.technology. This site is meant to serve as linked list of live demos.
+
+Bootstrapped with [Create React App](https://github.com/facebook/create-react-app) and [Material-UI](https://github.com/mui-org/material-ui).
+
+[Dockerized](https://github.com/docker) for maximum portiablity.
 
 ## Available Scripts
 

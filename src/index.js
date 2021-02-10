@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { ThemeProvider } from "@material-ui/styles";
-import { CssBaseline } from "@material-ui/core";
+import { CssBaseline, createMuiTheme } from "@material-ui/core";
 
 import Themes from "./themes";
 import App from "./components/App";
@@ -9,10 +9,25 @@ import * as serviceWorker from "./serviceWorker";
 import { LayoutProvider } from "./context/LayoutContext";
 import { UserProvider } from "./context/UserContext";
 
+const theme = createMuiTheme({
+  palette: {
+    primary: {
+      main: '#ff4400',
+    },
+    secondary: {
+      light: '#0066ff',
+      main: '#0044ff',
+      contrastText: '#ffcc00',
+    },
+    contrastThreshold: 3,
+    tonalOffset: 0.2,
+  },
+});
+
 ReactDOM.render(
   <LayoutProvider>
     <UserProvider>
-      <ThemeProvider theme={Themes.default}>
+      <ThemeProvider theme={theme}>
         <CssBaseline />
         <App />
       </ThemeProvider>

@@ -7,7 +7,7 @@ module.exports = [
   {
     title: 'OpenBCI WebXR EEG',
     img: 'images/OpenBCI-WebXR-EEG.gif',
-    link: 'https://reckless.technology/archive/OpenBCI-WebXR-EEG/',
+    link: 'https://reckless.technology/archive/openbci-webxr-eeg/',
   },
   {
     title: 'Hypercube XR',

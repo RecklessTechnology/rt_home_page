@@ -9,13 +9,13 @@ module.exports = [
     title: 'OpenBCI WebXR EEG',
     img: 'images/OpenBCI-WebXR-EEG.gif',
     link: 'https://reckless.technology/archive/openbci-webxr-eeg/',
-    code: 'https://github.com/Kineviz/OpenBCI-WebXR-EEG',
+    code: 'https://github.com/jerknose/openbci-webxr-eeg',
   },
   {
     title: 'Hypercube XR',
     img: 'images/hypercube-2.gif',
     link: 'https://reckless.technology/archive/hypercube-webXR-experience/',
-    code: 'https://github.com/Kineviz/hypercube-webXR-experience',
+    code: 'https://github.com/jerknose/hypercube-webXR-experience',
   },
   {
     title: 'ARs Attacks',

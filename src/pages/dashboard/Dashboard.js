@@ -21,6 +21,7 @@ export default function Dashboard(props) {
     grid: {
       width: '100%',
       height: 'auto',
+      paddingBottom: '25px',
     },
     item: {
       overflow: 'hidden',

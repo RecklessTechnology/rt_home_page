@@ -29,4 +29,10 @@ module.exports = [
     link: 'https://reckless.technology/archive/judgement-wall/',
     code: 'https://github.com/jerknose/judgementWall',
   },
+  {
+    title: 'Judgement Wall Janus',
+    img: 'images/janus.gif',
+    link: 'https://reckless.technology/archive/judgement-wall-janus/',
+    code: 'https://github.com/jerknose/judgementWallJanus',
+  },
 ];

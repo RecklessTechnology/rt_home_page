@@ -2,12 +2,11 @@ import React from "react";
 import {
   Grid,
   AppBar,
+  Toolbar,
   Button,
   ButtonGroup
 } from "@material-ui/core";
 import { makeStyles } from '@material-ui/core/styles';
-
-import Link from '@material-ui/core/Link';
 
 import GitHubIcon from '@material-ui/icons/GitHub';
 import OpenInNewIcon from '@material-ui/icons/OpenInNew';
@@ -51,11 +50,6 @@ export default function Dashboard(props) {
       padding: 0,
       margin: 0,
     },
-    gridTitle: {
-      textDecoration: 'none',
-      color: '#FFF',
-      padding: '5px 15px',
-    },
     appBar: {
       backgroundColor: '#fff',
       boxShadow: 'none',
@@ -69,9 +63,17 @@ export default function Dashboard(props) {
     },
     buttonGroup: {
       width: '100%',
+      groupedTextPrimary: {
+        borderColor: '#fff',
+      }
     },
     topButton: {
       color: '#fff',
+      textDecoration: 'none',
+      width: '100%',
+    },
+    bottomButton: {
+      color: '#000',
       textDecoration: 'none',
       width: '100%',
     },
@@ -80,41 +82,15 @@ export default function Dashboard(props) {
       textDecoration: 'none',
       width: '33%',
     },
-    pagelink: {
-      color: '#fff',
-      textDecoration: 'none',
-      underline: 'none',
-      width: '100%',
-      textAlign: 'right',
-      float: 'right',
-    },
-    openIcon: {
-      color: "#fff"
-    },
-    demoContainer: {
-      paddingTop: '17px',
-    },
-    githubIcon: {
-      color: "#fff"
-    },
-    githubContainer: {
-      paddingTop: '15px',
-    },
-    infoIcon: {
-      color: "#fff",
-      width: '1.25em',
-      height: '1.25em',
-    },
-    infoContainer: {
-      paddingTop: '15px',
-    }
   }));
   var classes = useStyles();
 
   return (
     <div className={classes.root}>
       <AppBar position={'relative'} className={classes.appBar} >
-        <PageTitle />
+        <Toolbar>
+          <PageTitle />
+        </Toolbar>
       </AppBar>
       <Grid container direction="row" justify="flex-start" alignItems="flex-start" spacing={3} className={classes.grid}>
         {projects.map((project) => (
@@ -124,7 +100,7 @@ export default function Dashboard(props) {
               }}>
                 <Grid container direction="row" justify="flex-start" alignItems="flex-start" spacing={3} className={classes.gridBarTop}>
                 <Grid item xl={12} lg={12} md={12} sm={12} xs={12} >
-                    <ButtonGroup className={classes.buttonGroup} variant="text" color="primary" aria-label="text primary button group">
+                    <ButtonGroup className={classes.buttonGroup} variant="text" aria-label="text primary button group">
                       <Button
                         href={project.demo}
                         target="_blank"
@@ -137,7 +113,7 @@ export default function Dashboard(props) {
                 </Grid>
                 <Grid container direction="row" justify="flex-start" alignItems="flex-start" spacing={3} className={classes.gridBarBottom}>
                   <Grid item xl={12} lg={12} md={12} sm={12} xs={12} >
-                    <ButtonGroup className={classes.buttonGroup} variant="text" color="primary" aria-label="text primary button group">
+                    <ButtonGroup className={classes.buttonGroup} variant="text" aria-label="text primary button group">
                       <Button
                         href={project.demo}
                         target="_blank"
@@ -164,37 +140,28 @@ export default function Dashboard(props) {
                       </Button>
                     </ButtonGroup>
                   </Grid>
-                  {/* <Grid item xl={4} lg={4} md={4} sm={4} xs={4} >
-                    <Link className={classes.pagelink} href={project.demo} target="_blank" rel="noopener noreferrer">
-                      <div className={classes.demoContainer} style={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap' }}>
-                        <span><h3 className={classes.gridTitle}>View Demo</h3></span>
-                        <OpenInNewIcon className={classes.openIcon}/>
-                      </div>  
-                    </Link>
-                  </Grid>
-                  <Grid item xl={4} lg={4} md={4} sm={4} xs={4} >
-                    <Link className={classes.pagelink} href={project.info} target="_blank" rel="noopener noreferrer">
-                      <div className={classes.infoContainer} style={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap' }}>
-                        <span><h3 className={classes.gridTitle}>More Info</h3></span>
-                        <InfoIcon className={classes.infoIcon}/>
-                      </div>  
-                    </Link>
-                  </Grid>
-                  <Grid item xl={4} lg={4} md={4} sm={4} xs={4} >
-                    <Link className={classes.pagelink} href={project.code} target="_blank" rel="noopener noreferrer">
-                      <div className={classes.githubContainer} style={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap' }}>
-                        <span><h3 className={classes.gridTitle}>View Source</h3></span>
-                        <GitHubIcon className={classes.githubIcon}/>
-                      </div>  
-                    </Link>
-                  </Grid> */}
                 </Grid>
               </div>
           </Grid>
         ))}
       </Grid>
       <AppBar position={'fixed'} className={classes.bottomBar} >
-        <Link className={classes.githublink} href="https://github.com/RecklessTechnology/rt_home_page" target="_blank" rel="noopener noreferrer">View page source. <GitHubIcon /></Link>
+      <ButtonGroup className={classes.buttonGroup} variant="text" aria-label="text primary button group">
+        <Button
+          href={"/"}
+          className={classes.bottomButton}
+        >
+          RecklessTech
+        </Button>
+        <Button
+          href={"https://github.com/RecklessTechnology/rt_home_page"}
+          target="_blank"
+          className={classes.bottomButton}
+          startIcon={<GitHubIcon />}
+        >
+          Page Source
+        </Button>
+      </ButtonGroup>
       </AppBar>
     </div>
   );

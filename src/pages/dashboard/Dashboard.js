@@ -2,12 +2,16 @@ import React from "react";
 import {
   Grid,
   AppBar,
+  Button,
+  ButtonGroup
 } from "@material-ui/core";
 import { makeStyles } from '@material-ui/core/styles';
 
+import Link from '@material-ui/core/Link';
+
 import GitHubIcon from '@material-ui/icons/GitHub';
 import OpenInNewIcon from '@material-ui/icons/OpenInNew';
-
+import InfoIcon from '@material-ui/icons/InfoOutlined';
 import PageTitle from "../../components/PageTitle";
 
 import projects from '../../config/projects'
@@ -35,11 +39,17 @@ export default function Dashboard(props) {
       backgroundPosition: 'center center',
       position: 'relative',
     },
-    gridBar: {
+    gridBarTop: {
+      width: '100%',
+      padding: 0,
+      margin: 0,
+    },
+    gridBarBottom: {
       width: '100%',
       bottom: 0,
       position: 'absolute',
-      padding: '0',
+      padding: 0,
+      margin: 0,
     },
     gridTitle: {
       textDecoration: 'none',
@@ -57,14 +67,20 @@ export default function Dashboard(props) {
       boxShadow: 'none',
       padding: '15px 30px',
     },
-    githublink: {
-      color: '#000',
-      textDecoration: 'none',
-      underline: 'none',
+    buttonGroup: {
       width: '100%',
-      textAlign: 'right',
     },
-    sourcelink: {
+    topButton: {
+      color: '#fff',
+      textDecoration: 'none',
+      width: '100%',
+    },
+    button: {
+      color: '#fff',
+      textDecoration: 'none',
+      width: '33%',
+    },
+    pagelink: {
       color: '#fff',
       textDecoration: 'none',
       underline: 'none',
@@ -75,11 +91,22 @@ export default function Dashboard(props) {
     openIcon: {
       color: "#fff"
     },
+    demoContainer: {
+      paddingTop: '17px',
+    },
     githubIcon: {
       color: "#fff"
     },
     githubContainer: {
-      paddingTop: '17px',
+      paddingTop: '15px',
+    },
+    infoIcon: {
+      color: "#fff",
+      width: '1.25em',
+      height: '1.25em',
+    },
+    infoContainer: {
+      paddingTop: '15px',
     }
   }));
   var classes = useStyles();
@@ -95,29 +122,79 @@ export default function Dashboard(props) {
               <div className={classes.gridImg} style={{
                 backgroundImage: 'url(' + project.img + ')'
               }}>
-                <Grid container direction="row" justify="flex-start" alignItems="flex-start" spacing={3} className={classes.gridBar}>
-                  <Grid item xl={11} lg={11} md={11} sm={11} xs={11} >
-                    <a className={classes.pageLink} href={project.link} target="_blank" rel="noopener noreferrer">
-                      <div style={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap' }}>
-                        <span><h3 className={classes.gridTitle}>{project.title}</h3></span>
+                <Grid container direction="row" justify="flex-start" alignItems="flex-start" spacing={3} className={classes.gridBarTop}>
+                <Grid item xl={12} lg={12} md={12} sm={12} xs={12} >
+                    <ButtonGroup className={classes.buttonGroup} variant="text" color="primary" aria-label="text primary button group">
+                      <Button
+                        href={project.demo}
+                        target="_blank"
+                        className={classes.topButton}
+                      >
+                        {project.title}
+                      </Button>
+                    </ButtonGroup>
+                  </Grid>
+                </Grid>
+                <Grid container direction="row" justify="flex-start" alignItems="flex-start" spacing={3} className={classes.gridBarBottom}>
+                  <Grid item xl={12} lg={12} md={12} sm={12} xs={12} >
+                    <ButtonGroup className={classes.buttonGroup} variant="text" color="primary" aria-label="text primary button group">
+                      <Button
+                        href={project.demo}
+                        target="_blank"
+                        className={classes.button}
+                        startIcon={<OpenInNewIcon />}
+                      >
+                        Demo
+                      </Button>
+                      <Button
+                        href={project.info}
+                        target="_blank"
+                        className={classes.button}
+                        startIcon={<InfoIcon />}
+                      >
+                        Info
+                      </Button>
+                      <Button
+                        href={project.code}
+                        target="_blank"
+                        className={classes.button}
+                        startIcon={<GitHubIcon />}
+                      >
+                        Source
+                      </Button>
+                    </ButtonGroup>
+                  </Grid>
+                  {/* <Grid item xl={4} lg={4} md={4} sm={4} xs={4} >
+                    <Link className={classes.pagelink} href={project.demo} target="_blank" rel="noopener noreferrer">
+                      <div className={classes.demoContainer} style={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap' }}>
+                        <span><h3 className={classes.gridTitle}>View Demo</h3></span>
                         <OpenInNewIcon className={classes.openIcon}/>
                       </div>  
-                    </a>
+                    </Link>
                   </Grid>
-                  <Grid item xl={1} lg={1} md={1} sm={1} xs={1} >
-                    <a className={classes.sourcelink} href={project.code} target="_blank" rel="noopener noreferrer">
+                  <Grid item xl={4} lg={4} md={4} sm={4} xs={4} >
+                    <Link className={classes.pagelink} href={project.info} target="_blank" rel="noopener noreferrer">
+                      <div className={classes.infoContainer} style={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap' }}>
+                        <span><h3 className={classes.gridTitle}>More Info</h3></span>
+                        <InfoIcon className={classes.infoIcon}/>
+                      </div>  
+                    </Link>
+                  </Grid>
+                  <Grid item xl={4} lg={4} md={4} sm={4} xs={4} >
+                    <Link className={classes.pagelink} href={project.code} target="_blank" rel="noopener noreferrer">
                       <div className={classes.githubContainer} style={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap' }}>
+                        <span><h3 className={classes.gridTitle}>View Source</h3></span>
                         <GitHubIcon className={classes.githubIcon}/>
                       </div>  
-                    </a>
-                  </Grid>
+                    </Link>
+                  </Grid> */}
                 </Grid>
               </div>
           </Grid>
         ))}
       </Grid>
       <AppBar position={'fixed'} className={classes.bottomBar} >
-        <a className={classes.githublink} href="https://github.com/RecklessTechnology/rt_home_page" target="_blank" rel="noopener noreferrer">View page source. <GitHubIcon /></a>
+        <Link className={classes.githublink} href="https://github.com/RecklessTechnology/rt_home_page" target="_blank" rel="noopener noreferrer">View page source. <GitHubIcon /></Link>
       </AppBar>
     </div>
   );

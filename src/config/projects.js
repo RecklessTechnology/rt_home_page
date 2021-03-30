@@ -32,13 +32,13 @@ module.exports = [
     img: 'images/janus.gif',
     demo: 'https://reckless.technology/archive/judgement-wall-janus/',
     code: 'https://github.com/jerknose/judgementWallJanus',
-    info: 'https://www.travisbennett.com/all/judgement-wall-janus-debuts-at-cal-academy-night-live',
+    info: 'https://www.travisbennett.com/all/judgement-wall-janus',
   },
   {
     title: 'Judgement Wall - 2015',
     img: 'images/judgement1.gif',
     demo: 'https://reckless.technology/archive/judgement-wall/',
     code: 'https://github.com/jerknose/judgementWall',
-    info: 'https://www.travisbennett.com/all/judgement-wall-debuts-at-peninsula-museum-of-art',
+    info: 'https://www.travisbennett.com/all/judgement-wall',
   },
 ];

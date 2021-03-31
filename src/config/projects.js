@@ -18,7 +18,7 @@ module.exports = [
     img: 'images/hypercube-2.gif',
     demo: 'https://reckless.technology/archive/hypercube-webXR-experience/',
     code: 'https://github.com/jerknose/hypercube-webXR-experience',
-    info: 'https://www.travisbennett.com/all/hypercube-xr-debuts-augmented-world-expo',
+    info: 'https://www.travisbennett.com/all/hypercube-xr',
   },
   {
     title: 'ARs Attacks - 2018',

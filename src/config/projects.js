@@ -25,7 +25,7 @@ module.exports = [
     img: 'images/arsattacksvideo.gif',
     demo: 'https://reckless.technology/archive/ars-attacks/',
     code: 'https://github.com/quinn-madson/ars-attacks',
-    info: 'https://www.travisbennett.com/all/ars-attacks-wins-the-webxr-weekend-challenge',
+    info: 'https://www.travisbennett.com/all/ars-attacks',
   },
   {
     title: 'Judgement Wall Janus - 2015',

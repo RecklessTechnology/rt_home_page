@@ -4,14 +4,14 @@ module.exports = [
     img: 'images/cannon_3.gif',
     demo: 'https://kinetecharts.github.io/openPerform/',
     code: 'https://github.com/kinetecharts/openPerform',
-    info: 'https://www.travisbennett.com/all/openperform-launches',
+    info: 'https://www.travisbennett.com/all/openperform',
   },
   {
     title: 'OpenBCI WebXR EEG - 2018',
     img: 'images/OpenBCI-WebXR-EEG.gif',
     demo: 'https://reckless.technology/archive/openbci-webxr-eeg/',
     code: 'https://github.com/jerknose/openbci-webxr-eeg',
-    info: 'https://www.travisbennett.com/all/brain-data-visualization-debuts',
+    info: 'https://www.travisbennett.com/all/openbci-webxr-eeg-visualization',
   },
   {
     title: 'Hypercube XR - 2018',

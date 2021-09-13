@@ -1,5 +1,6 @@
 {
-  "name": "rt_home_page",
+  "name": "rt_demos_page",
+  "homepage": "https://reckless.technology/demos/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

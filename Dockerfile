@@ -12,6 +12,7 @@ WORKDIR /usr/src/app
 RUN yarn install
 
 # # Build project
+RUN export NODE_OPTIONS=--openssl-legacy-provider
 RUN yarn run build
 
 # --- Stage 2 --- Deploy
